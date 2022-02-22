@@ -10,53 +10,59 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'inline_response400.g.dart';
+part 'patch_relation_tuples_internal_server_error_body.g.dart';
 
-abstract class InlineResponse400 implements Built<InlineResponse400, InlineResponse400Builder> {
+abstract class PatchRelationTuplesInternalServerErrorBody implements Built<PatchRelationTuplesInternalServerErrorBody, PatchRelationTuplesInternalServerErrorBodyBuilder> {
 
+    /// code
     @nullable
     @BuiltValueField(wireName: r'code')
     int get code;
 
+    /// details
     @nullable
     @BuiltValueField(wireName: r'details')
     BuiltList<JsonObject> get details;
 
+    /// message
     @nullable
     @BuiltValueField(wireName: r'message')
     String get message;
 
+    /// reason
     @nullable
     @BuiltValueField(wireName: r'reason')
     String get reason;
 
+    /// request
     @nullable
     @BuiltValueField(wireName: r'request')
     String get request;
 
+    /// status
     @nullable
     @BuiltValueField(wireName: r'status')
     String get status;
 
-    InlineResponse400._();
+    PatchRelationTuplesInternalServerErrorBody._();
 
-    static void _initializeBuilder(InlineResponse400Builder b) => b;
+    static void _initializeBuilder(PatchRelationTuplesInternalServerErrorBodyBuilder b) => b;
 
-    factory InlineResponse400([void updates(InlineResponse400Builder b)]) = _$InlineResponse400;
+    factory PatchRelationTuplesInternalServerErrorBody([void updates(PatchRelationTuplesInternalServerErrorBodyBuilder b)]) = _$PatchRelationTuplesInternalServerErrorBody;
 
     @BuiltValueSerializer(custom: true)
-    static Serializer<InlineResponse400> get serializer => _$InlineResponse400Serializer();
+    static Serializer<PatchRelationTuplesInternalServerErrorBody> get serializer => _$PatchRelationTuplesInternalServerErrorBodySerializer();
 }
 
-class _$InlineResponse400Serializer implements StructuredSerializer<InlineResponse400> {
+class _$PatchRelationTuplesInternalServerErrorBodySerializer implements StructuredSerializer<PatchRelationTuplesInternalServerErrorBody> {
 
     @override
-    final Iterable<Type> types = const [InlineResponse400, _$InlineResponse400];
+    final Iterable<Type> types = const [PatchRelationTuplesInternalServerErrorBody, _$PatchRelationTuplesInternalServerErrorBody];
     @override
-    final String wireName = r'InlineResponse400';
+    final String wireName = r'PatchRelationTuplesInternalServerErrorBody';
 
     @override
-    Iterable<Object> serialize(Serializers serializers, InlineResponse400 object,
+    Iterable<Object> serialize(Serializers serializers, PatchRelationTuplesInternalServerErrorBody object,
         {FullType specifiedType = FullType.unspecified}) {
         final result = <Object>[];
         if (object.code != null) {
@@ -99,9 +105,9 @@ class _$InlineResponse400Serializer implements StructuredSerializer<InlineRespon
     }
 
     @override
-    InlineResponse400 deserialize(Serializers serializers, Iterable<Object> serialized,
+    PatchRelationTuplesInternalServerErrorBody deserialize(Serializers serializers, Iterable<Object> serialized,
         {FullType specifiedType = FullType.unspecified}) {
-        final result = InlineResponse400Builder();
+        final result = PatchRelationTuplesInternalServerErrorBodyBuilder();
 
         final iterator = serialized.iterator;
         while (iterator.moveNext()) {
