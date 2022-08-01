@@ -11,18 +11,14 @@
 import 'package:ory_keto_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for PatchDelta
+// tests for IsReady503Response
 void main() {
-  // final instance = PatchDelta();
+  // final instance = IsReady503Response();
 
-  group('test PatchDelta', () {
-    // String action
-    test('to test the property `action`', () async {
-      // TODO
-    });
-
-    // RelationTuple relationTuple
-    test('to test the property `relationTuple`', () async {
+  group('test IsReady503Response', () {
+    // Errors contains a list of errors that caused the not ready status.
+    // Map<String, String> errors (default value: const {})
+    test('to test the property `errors`', () async {
       // TODO
     });
 

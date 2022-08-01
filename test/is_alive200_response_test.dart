@@ -11,18 +11,14 @@
 import 'package:ory_keto_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for PatchDelta
+// tests for IsAlive200Response
 void main() {
-  // final instance = PatchDelta();
+  // final instance = IsAlive200Response();
 
-  group('test PatchDelta', () {
-    // String action
-    test('to test the property `action`', () async {
-      // TODO
-    });
-
-    // RelationTuple relationTuple
-    test('to test the property `relationTuple`', () async {
+  group('test IsAlive200Response', () {
+    // Always \"ok\".
+    // String status
+    test('to test the property `status`', () async {
       // TODO
     });
 

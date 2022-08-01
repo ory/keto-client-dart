@@ -1,4 +1,4 @@
-# ory_keto_client.model.InlineResponse2001
+# ory_keto_client.model.GetVersion200Response
 
 ## Load the model package
 ```dart

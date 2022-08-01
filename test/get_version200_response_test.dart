@@ -11,18 +11,14 @@
 import 'package:ory_keto_client/api.dart';
 import 'package:test/test.dart';
 
-// tests for PatchDelta
+// tests for GetVersion200Response
 void main() {
-  // final instance = PatchDelta();
+  // final instance = GetVersion200Response();
 
-  group('test PatchDelta', () {
-    // String action
-    test('to test the property `action`', () async {
-      // TODO
-    });
-
-    // RelationTuple relationTuple
-    test('to test the property `relationTuple`', () async {
+  group('test GetVersion200Response', () {
+    // The version of Ory Keto.
+    // String version
+    test('to test the property `version`', () async {
       // TODO
     });
 

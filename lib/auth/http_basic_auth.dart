@@ -10,15 +10,17 @@
 
 part of openapi.api;
 
-class OAuth implements Authentication {
-  OAuth({this.accessToken = ''});
+class HttpBasicAuth implements Authentication {
+  HttpBasicAuth({this.username = '', this.password = ''});
 
-  String accessToken;
+  String username;
+  String password;
 
   @override
   void applyToParams(List<QueryParam> queryParams, Map<String, String> headerParams) {
-    if (accessToken.isNotEmpty) {
-      headerParams['Authorization'] = 'Bearer $accessToken';
+    if (username.isNotEmpty && password.isNotEmpty) {
+      final credentials = '$username:$password';
+      headerParams['Authorization'] = 'Basic ${base64.encode(utf8.encode(credentials))}';
     }
   }
 }

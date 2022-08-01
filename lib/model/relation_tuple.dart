@@ -10,44 +10,26 @@
 
 part of openapi.api;
 
-class RelationQuery {
-  /// Returns a new [RelationQuery] instance.
-  RelationQuery({
-    this.namespace,
-    this.object,
-    this.relation,
+class RelationTuple {
+  /// Returns a new [RelationTuple] instance.
+  RelationTuple({
+    required this.namespace,
+    required this.object,
+    required this.relation,
     this.subjectId,
     this.subjectSet,
   });
 
-  /// Namespace to query
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? namespace;
+  /// Namespace of the Relation Tuple
+  String namespace;
 
-  /// Object to query
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? object;
+  /// Object of the Relation Tuple
+  String object;
 
-  /// Relation to query
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? relation;
+  /// Relation of the Relation Tuple
+  String relation;
 
-  /// SubjectID to query  Either SubjectSet or SubjectID can be provided.
+  /// SubjectID of the Relation Tuple  Either SubjectSet or SubjectID can be provided.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -65,7 +47,7 @@ class RelationQuery {
   SubjectSet? subjectSet;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RelationQuery &&
+  bool operator ==(Object other) => identical(this, other) || other is RelationTuple &&
      other.namespace == namespace &&
      other.object == object &&
      other.relation == relation &&
@@ -75,32 +57,20 @@ class RelationQuery {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (namespace == null ? 0 : namespace!.hashCode) +
-    (object == null ? 0 : object!.hashCode) +
-    (relation == null ? 0 : relation!.hashCode) +
+    (namespace.hashCode) +
+    (object.hashCode) +
+    (relation.hashCode) +
     (subjectId == null ? 0 : subjectId!.hashCode) +
     (subjectSet == null ? 0 : subjectSet!.hashCode);
 
   @override
-  String toString() => 'RelationQuery[namespace=$namespace, object=$object, relation=$relation, subjectId=$subjectId, subjectSet=$subjectSet]';
+  String toString() => 'RelationTuple[namespace=$namespace, object=$object, relation=$relation, subjectId=$subjectId, subjectSet=$subjectSet]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-    if (namespace != null) {
       _json[r'namespace'] = namespace;
-    } else {
-      _json[r'namespace'] = null;
-    }
-    if (object != null) {
       _json[r'object'] = object;
-    } else {
-      _json[r'object'] = null;
-    }
-    if (relation != null) {
       _json[r'relation'] = relation;
-    } else {
-      _json[r'relation'] = null;
-    }
     if (subjectId != null) {
       _json[r'subject_id'] = subjectId;
     } else {
@@ -114,10 +84,10 @@ class RelationQuery {
     return _json;
   }
 
-  /// Returns a new [RelationQuery] instance and imports its values from
+  /// Returns a new [RelationTuple] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static RelationQuery? fromJson(dynamic value) {
+  static RelationTuple? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -126,16 +96,16 @@ class RelationQuery {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "RelationQuery[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "RelationQuery[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "RelationTuple[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "RelationTuple[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return RelationQuery(
-        namespace: mapValueOfType<String>(json, r'namespace'),
-        object: mapValueOfType<String>(json, r'object'),
-        relation: mapValueOfType<String>(json, r'relation'),
+      return RelationTuple(
+        namespace: mapValueOfType<String>(json, r'namespace')!,
+        object: mapValueOfType<String>(json, r'object')!,
+        relation: mapValueOfType<String>(json, r'relation')!,
         subjectId: mapValueOfType<String>(json, r'subject_id'),
         subjectSet: SubjectSet.fromJson(json[r'subject_set']),
       );
@@ -143,11 +113,11 @@ class RelationQuery {
     return null;
   }
 
-  static List<RelationQuery>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <RelationQuery>[];
+  static List<RelationTuple>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <RelationTuple>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = RelationQuery.fromJson(row);
+        final value = RelationTuple.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -156,12 +126,12 @@ class RelationQuery {
     return result.toList(growable: growable);
   }
 
-  static Map<String, RelationQuery> mapFromJson(dynamic json) {
-    final map = <String, RelationQuery>{};
+  static Map<String, RelationTuple> mapFromJson(dynamic json) {
+    final map = <String, RelationTuple>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RelationQuery.fromJson(entry.value);
+        final value = RelationTuple.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -170,13 +140,13 @@ class RelationQuery {
     return map;
   }
 
-  // maps a json object with a list of RelationQuery-objects as value to a dart map
-  static Map<String, List<RelationQuery>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<RelationQuery>>{};
+  // maps a json object with a list of RelationTuple-objects as value to a dart map
+  static Map<String, List<RelationTuple>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<RelationTuple>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RelationQuery.listFromJson(entry.value, growable: growable,);
+        final value = RelationTuple.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -187,6 +157,9 @@ class RelationQuery {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'namespace',
+    'object',
+    'relation',
   };
 }
 

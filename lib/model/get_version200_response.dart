@@ -10,47 +10,37 @@
 
 part of openapi.api;
 
-class Version {
-  /// Returns a new [Version] instance.
-  Version({
-    this.version,
+class GetVersion200Response {
+  /// Returns a new [GetVersion200Response] instance.
+  GetVersion200Response({
+    required this.version,
   });
 
-  /// Version is the service's version.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? version;
+  /// The version of Ory Keto.
+  String version;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Version &&
+  bool operator ==(Object other) => identical(this, other) || other is GetVersion200Response &&
      other.version == version;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (version == null ? 0 : version!.hashCode);
+    (version.hashCode);
 
   @override
-  String toString() => 'Version[version=$version]';
+  String toString() => 'GetVersion200Response[version=$version]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-    if (version != null) {
       _json[r'version'] = version;
-    } else {
-      _json[r'version'] = null;
-    }
     return _json;
   }
 
-  /// Returns a new [Version] instance and imports its values from
+  /// Returns a new [GetVersion200Response] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Version? fromJson(dynamic value) {
+  static GetVersion200Response? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -59,24 +49,24 @@ class Version {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "Version[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "Version[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GetVersion200Response[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GetVersion200Response[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return Version(
-        version: mapValueOfType<String>(json, r'version'),
+      return GetVersion200Response(
+        version: mapValueOfType<String>(json, r'version')!,
       );
     }
     return null;
   }
 
-  static List<Version>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <Version>[];
+  static List<GetVersion200Response>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <GetVersion200Response>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = Version.fromJson(row);
+        final value = GetVersion200Response.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -85,12 +75,12 @@ class Version {
     return result.toList(growable: growable);
   }
 
-  static Map<String, Version> mapFromJson(dynamic json) {
-    final map = <String, Version>{};
+  static Map<String, GetVersion200Response> mapFromJson(dynamic json) {
+    final map = <String, GetVersion200Response>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = Version.fromJson(entry.value);
+        final value = GetVersion200Response.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -99,13 +89,13 @@ class Version {
     return map;
   }
 
-  // maps a json object with a list of Version-objects as value to a dart map
-  static Map<String, List<Version>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<Version>>{};
+  // maps a json object with a list of GetVersion200Response-objects as value to a dart map
+  static Map<String, List<GetVersion200Response>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<GetVersion200Response>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = Version.listFromJson(entry.value, growable: growable,);
+        final value = GetVersion200Response.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -116,6 +106,7 @@ class Version {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'version',
   };
 }
 
